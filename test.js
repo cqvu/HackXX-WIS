@@ -29,18 +29,33 @@ function searchInput(){
   var search_result = search(search_field, search_input);
   console.log(search_result);
 
+  var info_return = [];
   for (var idx = 0; idx < search_result.length; idx++) {
-    var elem = search_result[idx];
-    var elem_info = info(elem);
-    var info_return = JSON.stringify(elem_info);
+    var elem_info = info(search_result[idx]);
+    var json_info = JSON.stringify(elem_info);
+    info_return.push(json_info);
   }
 
-  document.getElementById('searchOutputM').innerHTML = info_return;
+//  document.getElementById('searchOutputM').innerHTML = info_return;
+  for (var idx = 0; idx < info_return.length; idx++) {
+    var name = info_return[idx]["Name"];
+    var major = info_return[idx]["Major"];
+    var college = info_return[idx]["College"];
+    var hobbies = info_return[idx]["Hobbies"];
+    var number = info_return[idx]["Number"];
+    var email = info_return[idx]["Email"];
+
+    var inputString = "<div class='card col-12'><div class='row'> <img class='col-3 card-img-top bg-info' id='img' src='images/avatar.png'; width='200' height='250/'><div class='col-8'><h4 class='col-12'><b>"
+      + name + "</b></h4><p class='col-12'>"+ major + "<br/>" + college + "<br/>" + hobbies + "<br/>" + email + "<br/>" + number + "</p></div></div></div>";
+    document.getElementById('searchOutputM').innerHTML = inputString;
+  }
+
+college
 
 };
 
 /*
- * Defining a table
+  + * Defining a table
  * Use Bootstrap styling: jumbotron, container, media, border, p-3,  mr-3, mt-3, rounded-circle, media-body
  * Input: A person's name, major, hobbies, email, number, location
  * Processing: Calls writeNewUserData to store data into database
@@ -63,9 +78,16 @@ function menteeInput() {
   writeNewUserData(name, major, hobbies, email, number, college, image, status);
 
   var match_result = match(name);
+  var info_return = [];
+  for (var idx = 0; idx < match_result.length; idx++) {
+    var elem_info = info(match_result[idx]);
+    var json_info = JSON.stringify(elem_info);
+    info_return.push(json_info);
+  }
+
   //display the saying in the div that has the outputDiv
   document.getElementById('outputName').innerHTML = name + ",";
-  document.getElementById('outputSaying').innerHTML = match_result;
+  document.getElementById('outputSaying').innerHTML = info_return;
 };
 function mentorInput() {
   //prompt the user name from the text field with nameInputBox id and store it
@@ -84,10 +106,16 @@ function mentorInput() {
   writeNewUserData(name, major, hobbies, email, number, college, image, status);
 
   var match_result = match(name);
+  var info_return = [];
+  for (var idx = 0; idx < match_result.length; idx++) {
+    var elem_info = info(match_result[idx]);
+    var json_info = JSON.stringify(elem_info);
+    info_return.push(json_info);
+  }
   console.log("Matching result " + match_result);
   //display the saying in the div that has the outputDiv
   document.getElementById('outputNameM').innerHTML = name + ",";
-  document.getElementById('outputSayingM').innerHTML = match_result;
+  document.getElementById('outputSayingM').innerHTML = info_return;
 };
 
 
@@ -207,7 +235,6 @@ function match(name) {
   console.log(name_list.length)
   console.log(name_list.slice(0,5))
   return name_list.slice(0,5);
-
 };
 
 function writeNewUserData(name, major, hobbies, email, number, college, imageUrl, status) {

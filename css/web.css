@@ -16,7 +16,7 @@ p {
   padding: 1rem;
   margin-bottom: 1rem;
   font-size: 20px;
-  color: navy;
+  color: #C38D9E;
 }
 
 body {
@@ -44,14 +44,18 @@ body {
 #boxes{
   margin-top:-50px;
   outline-style: outset;
-  outline-color: cyan;
+  outline-color: #85DCB;
   outline-width: 10px;
   padding: 1rem;
 }
 #topborder{
-  background-color: #7FC7F3 !important;
+  /*background-color: #7FC7F3 !important;*/
+  background-color: #E27D60 !important;
 }
 #menu{
   margin-left:650px !important;
   font-weight: bold;
+}
+#cardsA{
+
 }
