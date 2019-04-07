@@ -66,6 +66,7 @@
             <div class="media-body">
               <h3 id="outputName"></h3>
               <p id="outputSaying"></p>
+
             </div>
     	   </div>
        </div>
@@ -90,7 +91,7 @@
 
        </p>
        <div class="media border p-3">
-         <img src="images/avatar.png" class="mr-3 mt-3 rounded-circle" style="width:60px">
+
          <div class="media-body">
            <h3 id="outputNameM"></h3>
            <p id="outputSayingM"></p>
@@ -113,28 +114,22 @@
         <p>Search For Fellow Women Around you:</p>
         <br>
         <!--Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-success lighten-5 mb-4 bg-success">
-          <!-- Collapse button -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
-          </button>
           <!-- Collapsible content -->
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <!-- Links -->
-          <label>Pick a category<br>
-          <select class="dropdown" name="dropdown">
-            <option value="">Select</option>
-            <option value="Major">Major</option>
-            <option value="College">College</option>
-            <option value="Hobbies">Hobbies</option>
-          </select>
-        </label>
+          <div class="inner navbar navbar-expand-lg ht bg-light" id="navbarSupportedContent">
+            <div class="col">
+              <select class="form-control" id="dropdownCategory">
+                <option value="Major">Major</option>
+                <option value="College">College</option>
+                <option value="Hobbies">Hobbies</option>
+              </select>
+            </div>
+            <div class="col-4"></div>
+
+        <form class="form-inline col">
+          <input class="form-control" type="text" id="searchbar" placeholder="Search in Category" aria-label="Search">
+          <button type="button" class="btn btn-info"  data-toggle="collapse" href="#collapseExample" onclick="searchInput();">Search</button>
+        </form>
       </div>
-    <!-- Search form -->
-    <form class="form-inline">
-      <input class="form-control" type="text" id="searchbar" placeholder="Search in Category" aria-label="Search">
-    </form>
- <button type="button" class="btn btn-info"  data-toggle="collapse" href="#collapseExample" onclick="searchInput();">Search</button>
 </nav>
 
 <div class="collapse" id="collapseExample">
@@ -144,18 +139,6 @@
       <p id="searchOutputM"></p>
     </div>
     <p id="demo"></p>
-
-<!--<script>
-function startUp(){
-var nameVariable = "name";
-var majorVariable = "xxx";
-document.getElementById("demo").innerHTML = "<div class='card col-12'><div class='row'> <img class='col-3 card-img-top bg-info' id='img' src='images/avatar.png'; width='200' height='250/'><div class='col-8'><h4 class='col-12'><b>"
-+ nameVariable + "</b></h4><p class='col-12'>"+ majorVariable+"</p></div></div></div>";
-};
-startUp();
-
-</script>-->
-
   </div>
 </div>
     </div>
