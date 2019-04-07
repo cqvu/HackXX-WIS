@@ -136,7 +136,7 @@ function mentorInput() {
     var number = json_obj["Number"];
     var email = json_obj["Email"];
 
-    var inputString = "<div class='card col-12'><div class='row'> <img class='col-3 card-img-top bg-info' id='img' src='images/avatar.png'; width='200' height='250/'><div class='col-8'><h4 class='col-12'><b>"
+    var inputString = "<div class='card col-12'><div class='row'> <img class='col-3 card-img-top bg-info' id='img' src='images/avatar.png'; width='150' height='170/'><div class='col-8'><h4 class='col-12'><b>"
       + name + "</b></h4><p class='col-12'>"+ major + "<br/>" + college + "<br/>" + hobbies + "<br/>" + email + "<br/>" + number + "</p></div></div></div>";
     document.getElementById('outputSayingM').insertAdjacentHTML('beforeend', inputString);
   }
@@ -144,8 +144,8 @@ function mentorInput() {
 
 
   //display the saying in the div that has the outputDiv
-  document.getElementById('outputNameM').innerHTML = name + ",";
-  document.getElementById('outputSayingM').innerHTML = inputString;
+  //document.getElementById('outputNameM').innerHTML = name + ",";
+  //document.getElementById('outputSayingM').innerHTML = inputString;
 
 };
 
