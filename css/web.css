@@ -16,7 +16,7 @@ p {
   padding: 1rem;
   margin-bottom: 1rem;
   font-size: 20px;
-  color: #C38D9E;
+  color: navy;
 }
 
 body {
@@ -41,16 +41,17 @@ body {
     border-top-right-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
 }
+
 #boxes{
   margin-top:-50px;
   outline-style: outset;
-  outline-color: #85DCB;
+  outline-color: cyan;
   outline-width: 10px;
   padding: 1rem;
 }
 #topborder{
-  /*background-color: #7FC7F3 !important;*/
-  background-color: #E27D60 !important;
+  background-color: #7FC7F3 !important;
+
 }
 #menu{
   margin-left:650px !important;

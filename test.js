@@ -14,20 +14,21 @@ var selection = "";
 
 function searchInput(){
 
-  const selectElement = document.querySelector('.dropdown');
-  //console.log(selectElement);
-  selectElement.addEventListener("change", (event) => {
-    // grabbing category selected
-    selection = event.target.value;
-    //console.log("searched " + selection);
-  });
+//  const selectElement = document.querySelector('.dropdown');
+//  console.log(selectElement);
+//  selectElement.addEventListener("change", (event) => {
+//    // grabbing category selected
+//    selection = event.target.value;
+//    //console.log("searched " + selection);
+//  });
+
+  var selectElement = document.getElementById('dropdownCategory').value
   var searchItem = document.getElementById('searchbar').value;
   console.log("selection " + selection + " searchbar "+ searchItem );
 
-  var search_field = selection;
+  var search_field = selectElement;
   var search_input = searchItem;
   var search_result = search(search_field, search_input);
-  console.log(search_result);
 
   var info_return = [];
   for (var idx = 0; idx < search_result.length; idx++) {
@@ -36,21 +37,24 @@ function searchInput(){
     info_return.push(json_info);
   }
 
+
+
 //  document.getElementById('searchOutputM').innerHTML = info_return;
-  for (var idx = 0; idx < info_return.length; idx++) {
-    var name = info_return[idx]["Name"];
-    var major = info_return[idx]["Major"];
-    var college = info_return[idx]["College"];
-    var hobbies = info_return[idx]["Hobbies"];
-    var number = info_return[idx]["Number"];
-    var email = info_return[idx]["Email"];
+  for (var i = 0; i < info_return.length; i++) {
+    var json_obj = JSON.parse(info_return[i]);
+    var name = json_obj["Name"];
+    //console.log(json_obj["Major"]);
+    var major = json_obj["Major"];
+    //console.log(major);
+    var college = json_obj["College"];
+    var hobbies = json_obj["Hobbies"];
+    var number = json_obj["Number"];
+    var email = json_obj["Email"];
 
     var inputString = "<div class='card col-12'><div class='row'> <img class='col-3 card-img-top bg-info' id='img' src='images/avatar.png'; width='200' height='250/'><div class='col-8'><h4 class='col-12'><b>"
       + name + "</b></h4><p class='col-12'>"+ major + "<br/>" + college + "<br/>" + hobbies + "<br/>" + email + "<br/>" + number + "</p></div></div></div>";
-    document.getElementById('searchOutputM').innerHTML = inputString;
+    document.getElementById('searchOutputM').insertAdjacentHTML('beforeend', inputString);
   }
-
-college
 
 };
 
@@ -85,9 +89,19 @@ function menteeInput() {
     info_return.push(json_info);
   }
 
-  //display the saying in the div that has the outputDiv
-  document.getElementById('outputName').innerHTML = name + ",";
-  document.getElementById('outputSaying').innerHTML = info_return;
+  for (var i = 0; i < info_return.length; i++) {
+    var json_obj = JSON.parse(info_return[i]);
+    var name = json_obj["Name"];
+    var major = json_obj["Major"];
+    var college = json_obj["College"];
+    var hobbies = json_obj["Hobbies"];
+    var number = json_obj["Number"];
+    var email = json_obj["Email"];
+
+    var inputString = "<div class='card col-12'><div class='row'> <img class='col-3 card-img-top bg-info' id='img' src='images/avatar.png'; width='200' height='250/'><div class='col-8'><h4 class='col-12'><b>"
+      + name + "</b></h4><p class='col-12'>"+ major + "<br/>" + college + "<br/>" + hobbies + "<br/>" + email + "<br/>" + number + "</p></div></div></div>";
+    document.getElementById('outputSaying').insertAdjacentHTML('beforeend', inputString);
+  }
 };
 function mentorInput() {
   //prompt the user name from the text field with nameInputBox id and store it
@@ -112,10 +126,27 @@ function mentorInput() {
     var json_info = JSON.stringify(elem_info);
     info_return.push(json_info);
   }
-  console.log("Matching result " + match_result);
+
+  for (var i = 0; i < info_return.length; i++) {
+    var json_obj = JSON.parse(info_return[i]);
+    var name = json_obj["Name"];
+    var major = json_obj["Major"];
+    var college = json_obj["College"];
+    var hobbies = json_obj["Hobbies"];
+    var number = json_obj["Number"];
+    var email = json_obj["Email"];
+
+    var inputString = "<div class='card col-12'><div class='row'> <img class='col-3 card-img-top bg-info' id='img' src='images/avatar.png'; width='200' height='250/'><div class='col-8'><h4 class='col-12'><b>"
+      + name + "</b></h4><p class='col-12'>"+ major + "<br/>" + college + "<br/>" + hobbies + "<br/>" + email + "<br/>" + number + "</p></div></div></div>";
+    document.getElementById('outputSayingM').insertAdjacentHTML('beforeend', inputString);
+  }
+
+
+
   //display the saying in the div that has the outputDiv
   document.getElementById('outputNameM').innerHTML = name + ",";
-  document.getElementById('outputSayingM').innerHTML = info_return;
+  document.getElementById('outputSayingM').innerHTML = inputString;
+
 };
 
 
